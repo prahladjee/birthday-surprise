@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Happy Birthday, My Love! ✨🎂</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Canvas Confetti Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Floating Hearts Canvas -->
+  <canvas id="heartsCanvas"></canvas>
+
+  <!-- Background Music Control -->
+  <div class="music-toggle" id="musicToggle" title="Play/Pause Romantic Music">
+    <div class="disc" id="musicDisc">🎵</div>
+    <span class="music-label">Our Song</span>
+  </div>
+  <!-- You can put your own mp3 in assets/music.mp3 or leave it to synthesized melody -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="assets/music.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- STEP 1: Interactive Gift Unboxing Modal -->
+  <div class="intro-overlay" id="introOverlay">
+    <div class="gift-card-box">
+      <div class="sparkles-decor">✨ 💖 ✨</div>
+      <p class="tagline">A special surprise waiting just for you...</p>
+      <h1 class="girl-name-preview">To The Birthday Girl 💕</h1>
+      
+      <!-- Interactive Envelope/Gift Box -->
+      <div class="gift-box" id="giftBox" onclick="openSurprise()">
+        <div class="box-lid">
+          <div class="box-bow">🎀</div>
+        </div>
+        <div class="box-body">
+          <span class="box-tap-hint">Tap to Open 🎁</span>
+        </div>
+      </div>
+      
+      <p class="click-instructions">Tap the gift to begin your journey</p>
+    </div>
+  </div>
+
+  <!-- STEP 2: Main Content Experience -->
+  <main class="main-wrapper" id="mainWrapper">
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+      <div class="badge-pill">🎉 Happy Birthday! 🎂</div>
+      <h1 class="main-title">Happy Birthday, <br><span class="glow-text">My Beautiful Queen</span> 💖</h1>
+      <p class="subtitle">Every single second with you is a blessing. Today is all about celebrating you!</p>
+      
+      <div class="scroll-down-indicator" onclick="scrollToSection('cakeSection')">
+        <span>Scroll to Celebrate</span>
+        <div class="arrow-down">↓</div>
+      </div>
+    </header>
+
+    <!-- Interactive Cake Section -->
+    <section class="cake-section" id="cakeSection">
+      <div class="section-badge">✨ Make A Birthday Wish ✨</div>
+      <h2 class="section-title">Blow Out the Candles!</h2>
+      <p class="section-desc">Tap on each candle flame to blow it out and make your secret wish 🎂</p>
+
+      <div class="cake-container">
+        <div class="cake">
+          <!-- Candles Layer -->
+          <div class="candles-wrapper">
+            <div class="candle" onclick="blowCandle(this)">
+              <div class="flame"></div>
+              <div class="wick"></div>
+              <div class="stick"></div>
+            </div>
+            <div class="candle" onclick="blowCandle(this)">
+              <div class="flame"></div>
+              <div class="wick"></div>
+              <div class="stick"></div>
+            </div>
+            <div class="candle" onclick="blowCandle(this)">
+              <div class="flame"></div>
+              <div class="wick"></div>
+              <div class="stick"></div>
+            </div>
+          </div>
+
+          <!-- Cake Tiers -->
+          <div class="cake-top">
+            <div class="icing-dripping"></div>
+            <div class="frosting-dots">
+              <span>🍓</span><span>🫐</span><span>🍓</span><span>🫐</span>
+            </div>
+          </div>
+          <div class="cake-bottom">
+            <div class="cake-ribbon">Happy Birthday!</div>
+          </div>
+          <div class="cake-plate"></div>
+        </div>
+      </div>
+
+      <button class="wish-btn" id="blowAllBtn" onclick="blowAllCandles()">💨 Blow Out All & Make A Wish!</button>
+      <div class="wish-message" id="wishMessage">🎉 May all your dreams come true! You deserve the world, sweetheart! 💖</div>
+    </section>
+
+    <!-- Polaroid Memories Gallery Section -->
+    <section class="gallery-section" id="gallerySection">
+      <div class="section-badge">📸 Our Beautiful Journey</div>
+      <h2 class="section-title">Capturing My Favorite Moments</h2>
+      <p class="section-desc">Click any polaroid to take a closer walk down memory lane ✨</p>
+
+      <div class="polaroids-grid">
+        
+        <!-- Polaroid Card 1 -->
+        <div class="polaroid-card rotate-left" onclick="openLightbox(0)">
+          <div class="washi-tape"></div>
+          <div class="photo-frame">
+            <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=700&q=80" alt="Special Memory 1" class="polaroid-img" id="img-0">
+          </div>
+          <div class="polaroid-caption">
+            <p class="caption-text">Your smile lights up my entire world ✨</p>
+            <span class="caption-date">Always & Forever</span>
+          </div>
+        </div>
+
+        <!-- Polaroid Card 2 -->
+        <div class="polaroid-card rotate-right" onclick="openLightbox(1)">
+          <div class="washi-tape"></div>
+          <div class="photo-frame">
+            <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=700&q=80" alt="Special Memory 2" class="polaroid-img" id="img-1">
+          </div>
+          <div class="polaroid-caption">
+            <p class="caption-text">Every moment with you is magic 💫</p>
+            <span class="caption-date">Our Happy Place</span>
+          </div>
+        </div>
+
+        <!-- Polaroid Card 3 -->
+        <div class="polaroid-card rotate-slight" onclick="openLightbox(2)">
+          <div class="washi-tape"></div>
+          <div class="photo-frame">
+            <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=700&q=80" alt="Special Memory 3" class="polaroid-img" id="img-2">
+          </div>
+          <div class="polaroid-caption">
+            <p class="caption-text">My favorite adventure is being with you 🗺️</p>
+            <span class="caption-date">Forever Partner</span>
+          </div>
+        </div>
+
+        <!-- Polaroid Card 4 -->
+        <div class="polaroid-card rotate-left" onclick="openLightbox(3)">
+          <div class="washi-tape"></div>
+          <div class="photo-frame">
+            <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=700&q=80" alt="Special Memory 4" class="polaroid-img" id="img-3">
+          </div>
+          <div class="polaroid-caption">
+            <p class="caption-text">You are the cutest human ever 💕</p>
+            <span class="caption-date">Never stop smiling</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="photo-replacement-tip">
+        💡 <strong>Tip for you:</strong> Replace these sample photos easily by saving your girlfriend's photos into <code>assets/images/photo1.jpg</code>, <code>photo2.jpg</code>, etc.!
+      </div>
+    </section>
+
+    <!-- Interactive Reasons Why I Love You (Flip Cards) -->
+    <section class="reasons-section">
+      <div class="section-badge">💌 From My Heart</div>
+      <h2 class="section-title">Little Things I Adore About You</h2>
+      <p class="section-desc">Tap on any card to flip and reveal a secret note 💖</p>
+
+      <div class="flip-grid">
+        <div class="flip-card" onclick="flipCard(this)">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <span class="card-icon">🌸</span>
+              <h3>Your Sweet Laugh</h3>
+              <p class="tap-hint">Tap to flip</p>
+            </div>
+            <div class="flip-back">
+              <p>Your laugh is literally my favorite sound in the whole universe. It can turn any terrible day into pure happiness!</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" onclick="flipCard(this)">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <span class="card-icon">✨</span>
+              <h3>Your Beautiful Soul</h3>
+              <p class="tap-hint">Tap to flip</p>
+            </div>
+            <div class="flip-back">
+              <p>The kindness, warmth, and compassion you give to everyone around you inspires me every single day.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" onclick="flipCard(this)">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <span class="card-icon">☕</span>
+              <h3>Our Cozy Little Chats</h3>
+              <p class="tap-hint">Tap to flip</p>
+            </div>
+            <div class="flip-back">
+              <p>Talking with you for hours about anything and everything feels like home. I never run out of things to say to you.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" onclick="flipCard(this)">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <span class="card-icon">💖</span>
+              <h3>Just Being You</h3>
+              <p class="tap-hint">Tap to flip</p>
+            </div>
+            <div class="flip-back">
+              <p>You don't have to try to be perfect—you are already everything I ever prayed for and more. Happy birthday baby!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Handwritten Romantic Letter Section -->
+    <section class="letter-section">
+      <div class="letter-paper">
+        <div class="wax-seal">💌</div>
+        <h2 class="letter-salutation">My Dearest Birthday Girl,</h2>
+        <div class="letter-body" id="letterText">
+          <p>As the clock strikes your birthday, I find myself looking back at all the wonderful moments we've shared. Having you in my life has filled every ordinary day with vibrant colors, genuine laughter, and so much peace.</p>
+          <p>Thank you for your warmth, your patience, your sweet hugs, and for being my biggest cheerleader. You deserve all the stars in the sky and all the joy this world has to offer.</p>
+          <p>May this upcoming year bring you endless success, good health, unforgettable memories, and dreams realized.</p>
+          <p class="letter-closing">Forever by your side,<br><strong>Yours Always ❤️</strong></p>
+        </div>
+        <div class="letter-hearts">💕 🎂 🥂 ✨</div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Made with all my ❤️ exclusively for you on your special day.</p>
+      <div class="fireworks-btn-box">
+        <button class="celebrate-btn" onclick="triggerFireworks()">🎆 Send Birthday Love! 🎆</button>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Photo Lightbox Modal -->
+  <div class="lightbox" id="lightboxModal" onclick="closeLightbox(event)">
+    <div class="lightbox-content">
+      <button class="close-lightbox" onclick="closeLightbox(event)">×</button>
+      <img src="" alt="Full view" id="lightboxImg">
+      <p id="lightboxCaption" class="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
