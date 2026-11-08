@@ -386,11 +386,15 @@ section {
   height: 45px;
   position: relative;
   cursor: pointer;
+  touch-action: manipulation;
+  padding: 10px 15px; /* generous tap area for mobile fingers */
+  margin: 0 -5px;
+  box-sizing: content-box;
 }
 
 .stick {
-  width: 100%;
-  height: 100%;
+  width: 14px;
+  height: 45px;
   background: repeating-linear-gradient(45deg, #fff, #fff 4px, #ff4d6d 4px, #ff4d6d 8px);
   border-radius: 4px;
 }
@@ -408,8 +412,8 @@ section {
   background: linear-gradient(to bottom, #ffee55 0%, #ff7700 70%, #ff3300 100%);
   border-radius: 50% 50% 35% 35%;
   position: absolute;
-  top: -20px;
-  left: 0;
+  top: -10px;
+  left: 15px;
   box-shadow: 0 0 15px #ffb703, 0 0 25px #ff5400;
   animation: flicker 0.6s infinite alternate;
   transform-origin: center bottom;
@@ -546,16 +550,18 @@ section {
 
 .photo-frame {
   width: 100%;
-  height: 250px;
+  height: 290px;
+  aspect-ratio: 4 / 5;
   overflow: hidden;
   border-radius: 4px;
-  background: #f0f0f0;
+  background: #fdf2f4;
 }
 
 .polaroid-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top center;
   transition: transform 0.5s ease;
 }
 
@@ -808,27 +814,255 @@ section {
 
 .close-lightbox {
   position: absolute;
-  top: -45px;
+  top: -50px;
   right: 0;
-  background: transparent;
-  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
   color: #fff;
-  font-size: 2.5rem;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  transition: all 0.2s;
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 600px) {
-  .main-title {
-    font-size: 2.2rem;
+.close-lightbox:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* ==========================================================
+   Mobile-First Responsiveness
+========================================================== */
+@media (max-width: 768px) {
+  .main-wrapper {
+    padding: 20px 16px 60px;
   }
-  .glow-text {
-    font-size: 2.8rem;
+
+  .polaroids-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+  }
+
+  .flip-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 520px) {
+  /* Music toggle on small screens */
+  .music-toggle {
+    top: 14px;
+    right: 14px;
+    padding: 6px 12px;
+    gap: 6px;
+  }
+  .music-toggle .disc {
+    font-size: 1.1rem;
+  }
+  .music-label {
+    font-size: 0.75rem;
+  }
+
+  /* Intro overlay on mobile */
+  .gift-card-box {
+    padding: 30px 18px;
+    border-radius: 20px;
   }
   .girl-name-preview {
-    font-size: 2.2rem;
+    font-size: 2.3rem;
+    margin-bottom: 18px;
   }
+  .gift-box {
+    width: 110px;
+    height: 110px;
+    margin-bottom: 20px;
+  }
+  .box-lid {
+    width: 120px;
+    height: 30px;
+    left: -5px;
+  }
+  .box-body {
+    width: 110px;
+    height: 80px;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    min-height: 75vh;
+    padding: 20px 5px;
+  }
+  .badge-pill {
+    font-size: 0.85rem;
+    padding: 6px 18px;
+    margin-bottom: 18px;
+  }
+  .main-title {
+    font-size: 2rem;
+    line-height: 1.25;
+  }
+  .glow-text {
+    font-size: 2.7rem;
+  }
+  .subtitle {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+
+  /* Section Headings */
+  section {
+    margin-bottom: 70px;
+  }
+  .section-badge {
+    font-size: 0.75rem;
+    padding: 5px 14px;
+  }
+  .section-title {
+    font-size: 1.7rem;
+  }
+  .section-desc {
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+    padding: 0 5px;
+  }
+
+  /* Cake sizing on mobile */
+  .cake-container {
+    height: 220px;
+  }
+  .cake {
+    width: 220px;
+  }
+  .cake-top {
+    width: 170px;
+    height: 52px;
+  }
+  .cake-bottom {
+    width: 210px;
+    height: 65px;
+  }
+  .cake-plate {
+    width: 235px;
+    height: 12px;
+  }
+  .candles-wrapper {
+    gap: 20px;
+  }
+  .wish-btn {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+    width: 90%;
+    max-width: 320px;
+  }
+  .wish-message {
+    font-size: 1.05rem;
+    padding: 0 10px;
+  }
+
+  /* Polaroids on mobile */
+  .polaroids-grid {
+    grid-template-columns: 1fr;
+    max-width: 330px;
+    margin: 20px auto 0;
+    gap: 26px;
+  }
+  .rotate-left { transform: rotate(-1.5deg); }
+  .rotate-right { transform: rotate(1.5deg); }
+  .rotate-slight { transform: rotate(-0.8deg); }
+  .photo-frame {
+    height: 310px;
+  }
+  .caption-text {
+    font-size: 1.35rem;
+  }
+
+  /* Flip Cards on mobile */
+  .flip-grid {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+    margin: 0 auto;
+    gap: 16px;
+  }
+  .flip-card {
+    height: 170px;
+  }
+  .flip-front .card-icon {
+    font-size: 1.8rem;
+    margin-bottom: 6px;
+  }
+  .flip-front h3 {
+    font-size: 1rem;
+  }
+  .flip-back {
+    font-size: 0.88rem;
+    padding: 16px;
+    line-height: 1.45;
+  }
+
+  /* Letter Paper on mobile */
   .letter-paper {
-    padding: 35px 20px;
+    padding: 35px 18px 24px;
+    border-radius: 14px;
+  }
+  .wax-seal {
+    font-size: 2.1rem;
+    top: -20px;
+  }
+  .letter-salutation {
+    font-size: 2rem;
+    margin-bottom: 14px;
+  }
+  .letter-body p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin-bottom: 14px;
+  }
+  .letter-closing {
+    font-size: 1rem;
+    margin-top: 20px;
+  }
+
+  /* Lightbox on mobile */
+  .lightbox {
+    padding: 14px;
+  }
+  .lightbox-content img {
+    max-height: 65vh;
+  }
+  .lightbox-caption {
+    font-size: 1.4rem;
+    margin-top: 12px;
+  }
+  .close-lightbox {
+    top: -46px;
+    right: 5px;
+    width: 38px;
+    height: 38px;
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .main-title {
+    font-size: 1.8rem;
+  }
+  .glow-text {
+    font-size: 2.3rem;
+  }
+  .cake-top {
+    width: 150px;
+  }
+  .cake-bottom {
+    width: 185px;
+  }
+  .cake-plate {
+    width: 210px;
   }
 }
