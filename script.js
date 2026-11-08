@@ -165,20 +165,36 @@ function showWishCelebration() {
 // --- 4. Polaroid Lightbox Modal ---
 const memories = [
   {
-    src: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=1200&q=80",
+    src: "assets/images/image1.jpeg",
     caption: "Your smile lights up my entire world ✨"
   },
   {
-    src: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1200&q=80",
+    src: "assets/images/image2.jpeg",
     caption: "Every moment with you is magic 💫"
   },
   {
-    src: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1200&q=80",
-    caption: "My favorite adventure is being with you 🗺️"
+    src: "assets/images/image3.jpeg",
+    caption: "My favorite adventure is you 🗺️"
   },
   {
-    src: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1200&q=80",
+    src: "assets/images/image4.jpeg",
     caption: "You are the cutest human ever 💕"
+  },
+  {
+    src: "assets/images/image5.jpeg",
+    caption: "The sweetest moments we share 🌸"
+  },
+  {
+    src: "assets/images/image6.jpeg",
+    caption: "Forever my favorite view 💖"
+  },
+  {
+    src: "assets/images/image7.jpeg",
+    caption: "You make my heart skip a beat ✨"
+  },
+  {
+    src: "assets/images/image8.jpeg",
+    caption: "To a million more memories 🥂"
   }
 ];
 
