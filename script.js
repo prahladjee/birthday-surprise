@@ -229,12 +229,14 @@ function toggleMusic(forcePlay) {
 
   if (isPlaying) {
     musicToggle.classList.add('playing');
+    bgMusic.volume = 0.85;
     
-    // Attempt standard audio element first
     const playPromise = bgMusic.play();
     if (playPromise !== undefined) {
-      playPromise.catch(() => {
-        // Fallback: If no audio file or autoplay blocked, use Web Audio API cute melody!
+      playPromise.then(() => {
+        stopSynthesizedMelody();
+      }).catch((err) => {
+        console.log("Audio file play fallback to chime:", err);
         startSynthesizedMelody();
       });
     }
