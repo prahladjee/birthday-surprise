@@ -166,35 +166,35 @@ function showWishCelebration() {
 const memories = [
   {
     src: "assets/images/image1.jpeg",
-    caption: "Your smile lights up my entire world ✨"
+    caption: "Us together in our festive best — you make every occasion special 🖤"
   },
   {
     src: "assets/images/image2.jpeg",
-    caption: "Every moment with you is magic 💫"
+    caption: "Standing beside you, lighting up the room brighter than all the Diwali lights ✨"
   },
   {
     src: "assets/images/image3.jpeg",
-    caption: "My favorite adventure is you 🗺️"
+    caption: "The grace and elegance you carry in that saree is breathtaking 🌸"
   },
   {
     src: "assets/images/image4.jpeg",
-    caption: "You are the cutest human ever 💕"
+    caption: "Those sparkling brown eyes and that sweet smile melt my heart every single day 💖"
   },
   {
     src: "assets/images/image5.jpeg",
-    caption: "The sweetest moments we share 🌸"
+    caption: "Completely natural, candid, and effortlessly stunning ✨"
   },
   {
     src: "assets/images/image6.jpeg",
-    caption: "Forever my favorite view 💖"
+    caption: "The prettiest soul with that innocent, heartwarming charm 🌿"
   },
   {
     src: "assets/images/image7.jpeg",
-    caption: "You make my heart skip a beat ✨"
+    caption: "Your radiant warmth and sunny smile that brighten my whole world ☀️"
   },
   {
     src: "assets/images/image8.jpeg",
-    caption: "To a million more memories 🥂"
+    caption: "Looking like an absolute angel in white amidst the greenery 🕊️"
   }
 ];
 
